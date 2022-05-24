@@ -1,16 +1,7 @@
-FROM golang:1.18-alpine
+FROM alpine:latest
 
-RUN mkdir app
+RUN mkdir /app
 
-COPY . ./app
+COPY broker-service /app
 
-WORKDIR app
-
-RUN CGO_ENABLED=0 go build -o broker-service ./cmd/api
-
-CMD ["./broker-service"]
-
-
-
-
-
+CMD [ "/app/broker-service"]

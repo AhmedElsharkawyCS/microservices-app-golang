@@ -1,0 +1,8 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/ahmed/OneDrive/Desktop/microservices-app-golang'
+echo "Starting Docker images..."
+docker-compose up -d
+echo "Docker images started!"
+ 
+make: Leaving directory 'c:/Users/ahmed/OneDrive/Desktop/microservices-app-golang'
+ 
