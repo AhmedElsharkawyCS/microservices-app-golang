@@ -12,23 +12,23 @@ func main() {
 		render(w, "test.page.gohtml")
 	})
 
-	fmt.Println("Starting front end service on port 3000")
-	err := http.ListenAndServe(":3000", nil)
+	fmt.Println("Starting front end service on port 80")
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		log.Panic(err)
 	}
 }
 
 func render(w http.ResponseWriter, t string) {
-    var base = "./cmd/web/templates/"
+
 	partials := []string{
-		base+"base.layout.gohtml",
-		base+"header.partial.gohtml",
-		base+"footer.partial.gohtml",
+		"./cmd/web/templates/base.layout.gohtml",
+		"./cmd/web/templates/header.partial.gohtml",
+		"./cmd/web/templates/footer.partial.gohtml",
 	}
 
 	var templateSlice []string
-	templateSlice = append(templateSlice, base+t)
+	templateSlice = append(templateSlice, fmt.Sprintf("./cmd/web/templates/%s", t))
 
 	for _, x := range partials {
 		templateSlice = append(templateSlice, x)
